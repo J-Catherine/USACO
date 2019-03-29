@@ -9,9 +9,6 @@ var (
 	num, now                            []int
 )
 
-//func dfs(x int)  {
-//
-//}
 
 func judge(value int) {
 	for ; value > 0; value /= 10 {
