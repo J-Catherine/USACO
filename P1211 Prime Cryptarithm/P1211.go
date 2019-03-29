@@ -5,13 +5,22 @@ import (
 )
 
 var (
-	n, value1, value2, value, cnt, flag int
+	n, value1, value2, cnt, flag int
 	num, now                            []int
 )
 
 //func dfs(x int)  {
 //
 //}
+
+func judge(value int) {
+	for ; value > 0; value /= 10 {
+		if now[value%10] != 1 {
+			flag = 0
+		}
+	}
+}
+
 
 func main() {
 	fmt.Scanln(&n)
@@ -32,25 +41,9 @@ func main() {
 						value2 = num[l]*10 + num[m]
 						if value1*num[m] < 1000 && value1*num[l] < 1000 && value1*value2 < 10000 {
 							flag = 1
-							for value = value1 * value2; value > 0; value /= 10 {
-								if now[value%10] != 1 {
-									flag = 0
-									break
-								}
-							}
-							for value = value1 * num[m]; value > 0; value /= 10 {
-								if now[value%10] != 1 {
-									flag = 0
-									break
-								}
-							}
-							for value = value1 * num[l]; value > 0; value /= 10 {
-								if now[value%10] != 1 {
-									flag = 0
-									break
-								}
-							}
-
+							judge(value1 * value2)
+							judge(value1 * num[m])
+							judge(value1 * num[l])
 							cnt += flag
 						}
 					}
