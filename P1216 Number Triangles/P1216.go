@@ -24,12 +24,17 @@ func main()  {
 	var inputReader *bufio.Reader
 	inputReader = bufio.NewReader(os.Stdin)
 	str,_ := inputReader.ReadString('\n')
+	//fmt.Println(str[:len(str)-1])
 	r,_ := strconv.Atoi(str[:len(str)-1])
 	t=make([][]int,r)
 	state = make([][]int,r)
 	for i:=0; i<r; i++{
 		t[i]=make([]int,i+1)
 		state[i] = make([]int, i+1)
+		//for j:=0; j<=i; j++{
+		//	fmt.Scanln(&t[i][j])
+		//}
+		//fmt.Println(t)
 
 
 		str,_ := inputReader.ReadString('\n')
@@ -37,8 +42,10 @@ func main()  {
 		for j:=0; j<=i; j++{
 			t[i][j], _ = strconv.Atoi(ints[j])
 		}
+		//fmt.Println(str)
 
 	}
+	//return
 
 	state[0][0]=t[0][0]
 	for i :=1; i<r; i++{
