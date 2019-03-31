@@ -7,38 +7,31 @@ import (
 
 var (
 	//d1,d2,d3,d4,n,palindrome int
-	start,end,n,cnt int
-	m []int
-
+	start, end, n, cnt int
+	m                  []int
 )
 
-func isPrime(x int) int {
-	if x==2 || x==3 {
-		return 1
-	}
-	if x== 1{
+func isPrime(n int) int {
+	if n == 1 {
 		return 0
 	}
-	if x%6!=1 && x%6!=5{
-		return 0
-	}
-	n_sqrt := int(math.Sqrt(float64(x)))
-	for i:=5;i<=n_sqrt;i+=6{
-		if x%(i)==0 || x%(i+2)==0 {
-				return 0
+	n_sqrt := int(math.Sqrt(float64(n)))
+	for i := 2; i < n_sqrt && i%2 != 0; i++ {
+		if n%i == 0 {
+			return 0
 		}
 	}
 	return 1
 }
 
-func judge(x int)  {
+func judge(x int) {
 	flag := 1
-	for a:=x; a>0 && flag == 1; a/=10{
+	for a := x; a > 0 && flag == 1; a /= 10 {
 		flag = isPrime(a)
 	}
 	if flag == 1 {
 		m[end] = x
-		end+=1
+		end += 1
 	}
 	return
 }
@@ -116,24 +109,24 @@ func judge(x int)  {
 //	}
 //}
 
-func main()  {
+func main() {
 	fmt.Scanln(&n)
 	//fun(n)
 	m = make([]int, 1000000)
 	v := 0
-	end=1
-	for i:=0; i<n; i++ {
-		cnt = end-start
-		for k:= start; k<start+cnt; k++{
-			v= m[k]*10+1
-			for j:=1; j<=9; j,v=j+1,v+1{
+	end = 1
+	for i := 0; i < n; i++ {
+		cnt = end - start
+		for k := start; k < start+cnt; k++ {
+			v = m[k]*10 + 1
+			for j := 1; j <= 9; j, v = j+1, v+1 {
 				judge(v)
 			}
 		}
 		start += cnt
 
 	}
-	for i:=start; i<end; i++{
+	for i := start; i < end; i++ {
 		fmt.Println(m[i])
 	}
 
