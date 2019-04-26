@@ -11,14 +11,14 @@ type Number struct {
 }
 type Numbers []Number
 
-func coprime(a, b int) bool {
-	for i := 2; i <= 200; i++ {
-		if a%i == 0 && b%i == 0 {
-			return false
-		}
-	}
-	return true
-}
+//func gcd(a, b int) int {
+//	d := a % b
+//	if d == 1 || d == 0{
+//		return d
+//	} else {
+//		return gcd(b,d)
+//	}
+//}
 
 func (a Numbers) Len() int {
 	return len(a)
@@ -30,33 +30,27 @@ func (a Numbers) Swap(i, j int) {
 	a[i], a[j] = a[j], a[i]
 }
 func main() {
-	n := 0
+	n := 5000
 	fmt.Scanln(&n)
 	sum := 0
 	count := ((n + 1) * n) / 2
 	a := make(Numbers, count)
 
 	for i := 1; i <= n; i++ {
-		for j := n; j >= 1; j-- {
-			if i < j {
-				sum += 1
-				a[sum].z = float64(i) / float64(j) //分数值，因为i,j是整数，所以要乘1.0000
+		for j := n; j > i; j-- {
+			if gcd(i,j) == 1{
+				a[sum].z = float64(i) / float64(j)
 				a[sum].x = i
 				a[sum].y = j
-				// fmt.Println(sum,a[sum].z,a[sum].x,a[sum].y)
+				sum += 1
 			}
 		}
 	}
+	a = a[:sum]
 	sort.Sort(a)
-	//fmt.Println(a)
-	fmt.Println("0/1")
-	for i := range a {
-		if a[i].y == 0 {
-			continue
-		}
-		if coprime(a[i].x, a[i].y) {
-			fmt.Printf("%d/%d\n", a[i].x, a[i].y)
-		}
-	}
-	fmt.Println("1/1")
+	//fmt.Println("0/1")
+	//for i := range a {
+	//	//fmt.Printf("%d/%d\n", a[i].x, a[i].y)
+	//}
+	//fmt.Println("1/1")
 }
