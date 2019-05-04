@@ -120,3 +120,10 @@
 > 输入一个自然数N,对于一个最简分数a/b（分子和分母互质的分数），满足1<=b<=N，0<=a/b<=1。给定一个自然数N，1<=n<=160，按分数值递增的顺序输出所有解。
 
 + 思路1：维护一个大小为N的堆，n个数分母分别为1-n，每次弹出堆中最小的数（x/y），加入和这个数相同分母、分子+1（ (x+1)/y ），继续维护这个堆。 复杂度：$O(N^2 logN)​$
+
+### P1459 [USACO2.1]三值的排序 Sorting a Three-Valued Sequence
+
+> Consider the special sorting problem in which the records to be sorted have at most three different key values . Please computes the minimal number of exchange operations that are necessary to make the sequence sorted.
+
++ 思路1：计算3种值每一种各有多少个，找出位置不正确的数，如果可以直接交换，交换。交换完成后剩下的都是不可以直接被交换的，一组（3个）的操作数为2。如：2,3,1，需要交换2次
+### P1460 [USACO2.1] 健康的荷斯坦奶牛 Healthy Holsteins
