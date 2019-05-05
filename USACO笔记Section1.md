@@ -126,4 +126,19 @@
 > Consider the special sorting problem in which the records to be sorted have at most three different key values . Please computes the minimal number of exchange operations that are necessary to make the sequence sorted.
 
 + 思路1：计算3种值每一种各有多少个，找出位置不正确的数，如果可以直接交换，交换。交换完成后剩下的都是不可以直接被交换的，一组（3个）的操作数为2。如：2,3,1，需要交换2次
+
 ### P1460 [USACO2.1] 健康的荷斯坦奶牛 Healthy Holsteins
+
+> Help Farmer John feed the cows so they stay healthy while minimizing the number of scoops that a cow is fed.
+>
+> Given the daily requirements of each kind of vitamin that a cow needs, identify the smallest combination of scoops of feed a cow can be fed in order to meet at least the minimum vitamin requirements.
+
++ 思路1：DFS，每次选或者不选。用一个数组记录选择的方案。$O(2^n)$
++ 思路2：$O(n!)$
+
+### 2.2.2 Subset Sums
+
+> For many sets of consecutive integers from 1 through N (1 <= N <= 39), one can partition the set into two sets whose sums are identical
+
++ 思路1：DFS，一般O(2^n) 的算法n<=25可以通过。此处不能过
++ 思路2：动态规划-背包问题。`F(i,j) = F(i-1, j) + F(i-1, j-i)`，**到F(i,j)的方法数**为
