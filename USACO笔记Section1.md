@@ -126,4 +126,7 @@
 > Consider the special sorting problem in which the records to be sorted have at most three different key values . Please computes the minimal number of exchange operations that are necessary to make the sequence sorted.
 
 + 思路1：计算3种值每一种各有多少个，找出位置不正确的数，如果可以直接交换，交换。交换完成后剩下的都是不可以直接被交换的，一组（3个）的操作数为2。如：2,3,1，需要交换2次
+
 ### P1460 [USACO2.1] 健康的荷斯坦奶牛 Healthy Holsteins
+
+> 
