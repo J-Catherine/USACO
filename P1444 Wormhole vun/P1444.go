@@ -98,11 +98,11 @@ func partner(x int) {
 }
 
 func main() {
-	fmt.Scanln(&n)
+	_, _ = fmt.Scanln(&n)
 	p = make([]point, n+1)
 	b = make([]int, n+1)
 	for i := 1; i <= n; i++ {
-		fmt.Scanln(&p[i].x, &p[i].y)
+		_, _ = fmt.Scanln(&p[i].x, &p[i].y)
 	}
 	p[0].x = -1000
 	p[0].y = -1000
