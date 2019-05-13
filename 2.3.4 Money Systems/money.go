@@ -15,7 +15,7 @@ func main() {
 	for i:=0; i<v; i++{
 		for j:= h[i]; j<=n; j++{
 			f[j] += f[j-h[i]]
-			//fmt.Println(j,j-h[i], f[j])
+			//fmt.Println("j",j,"j-hi",j-h[i],"F[j]" ,f[j],"Fj-hi",f[j-h[i]])
 		}
 	}
 	fmt.Println(f[n])
