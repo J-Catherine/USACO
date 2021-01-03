@@ -35,7 +35,6 @@ const dfs = (idx, currSum, currType, typeList) => {
     // console.log(idx, currSum, currType, typeList)
     if(compareNormal(currSum)) {
         if(currType <= res.type) {
-            // console.log("(*****)", currType, res.type, currSum, typeList)
             res = {
                 type: currType,
                 typeList: typeList.slice()
